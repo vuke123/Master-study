@@ -1,0 +1,12 @@
+<launch>
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <remap from="scan" to="base_scan"/>
+  </node>
+
+  <node pkg="stage_ros" type="stageros" name="stageros" args="/home/luka/catkin_ws/src/lab6/simple_rps_world/simple_rps.world"/>
+
+  <node pkg="rviz" type="rviz" name="rviz"/>
+
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+</launch>
+

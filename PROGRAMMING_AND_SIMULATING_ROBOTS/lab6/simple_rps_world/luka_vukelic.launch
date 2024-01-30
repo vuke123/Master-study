@@ -1,0 +1,16 @@
+<launch>
+  <!-- Launch GMapping Node -->
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <remap from="scan" to="base_scan"/>
+  </node>
+
+  <!-- Launch Stage Simulator with the specified world file -->
+  <node pkg="stage_ros" type="stageros" name="stageros" args="$(find simple_rps_world)/simple_rps.world"/>
+
+  <!-- Launch RViz -->
+  <node pkg="rviz" type="rviz" name="rviz"/>
+
+  <!-- Launch Keyboard Teleoperation -->
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+</launch>
+

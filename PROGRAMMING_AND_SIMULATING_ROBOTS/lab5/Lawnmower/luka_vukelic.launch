@@ -1,0 +1,18 @@
+<launch>
+
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node" output="screen" />
+
+
+  <node pkg="rosservice" type="rosservice" name="set_pen_up" args="call /turtle1/set_pen 255 255 255 2 1" output="screen" />
+
+  <node pkg="rosparam" type="rosparam" name="delay" args="set /delay 5" output="screen"/>
+  <node name="delay_node" pkg="rosrun" type="rosrun" args="stdr_samples delay_node.py" output="screen"/>
+
+  <node pkg="rosservice" type="rosservice" name="teleport_turtle" args="call /turtle1/teleport_absolute 1.0 1.0 0.0" output="screen" />
+
+  <node pkg="rosservice" type="rosservice" name="set_pen_down" args="call /turtle1/set_pen 255 255 255 2 0" output="screen" />
+
+
+  <node pkg="turtle_lawnmower" type="turtle_lawnmower_node" name="turtle_lawnmower_node" output="screen" />
+
+</launch>
